@@ -1,4 +1,4 @@
-from db_helpers import c_db_helpers as d
+import c_db_helpers as d
 import random as r
 
 dbh = d.dbh()
