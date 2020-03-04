@@ -21,14 +21,14 @@ class dbh:
         for n in columnNames:
             names += n + ','
         names = names[:-1] + ') '
-        sql = "INSERT INTO " + tableName + names
+        sql = "INSERT INTO " + tableName + names + " VALUES "
 
         vals = ""
         for list in listOfListOfValues:
             vals += "("
             for v in list:
                 vals += str(v) + ','
-            vals = vals[:-1] + '),'
+            vals = vals[:-1] + ')'
         sql = sql[:-1] + vals + ';'
         self.executeSQL(sql)
 
