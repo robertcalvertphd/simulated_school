@@ -83,6 +83,7 @@ def createStudents(n = 100):
     for i in range(n):
         s = Student()
         sql += createSQLForInsert(con, s)
+        print(sql)
     dbh.executeSQL(con,sql)
 #takes approximately 30 seconds which is too long imho
 
