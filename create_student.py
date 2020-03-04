@@ -75,7 +75,7 @@ def getGaussWithMin1(mean, sd):
     if ret < 1 : ret = 1
     return int(ret)
 
-def createInsertCommandForStudents(n = 100):
+def createInsertCommandForStudents(n = 10):
     values = []
     for i in range(n):
         s = Student()

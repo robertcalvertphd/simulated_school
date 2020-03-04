@@ -23,13 +23,13 @@ class dbh:
         names = names[:-1] + ') '
         sql = "INSERT INTO " + tableName + names
 
+        vals = ""
         for list in listOfListOfValues:
-            vals = "("
+            vals += "("
             for v in list:
                 vals += str(v) + ','
-            vals[:-1] + '),'
-        sql = sql[:-1] + ';'
-        print(sql)
+            vals = vals[:-1] + '),'
+        sql = sql[:-1] + vals + ';'
         self.executeSQL(sql)
 
     def executeSQL(self, sql):
