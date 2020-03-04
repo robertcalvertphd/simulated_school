@@ -75,7 +75,7 @@ def getGaussWithMin1(mean, sd):
     if ret < 1 : ret = 1
     return int(ret)
 
-def createInsertCommandForStudents(n = 10):
+def createInsertCommandForStudents(n = 100):
     values = []
     for i in range(n):
         s = Student()
@@ -89,6 +89,6 @@ def createInsertCommandForStudents(n = 10):
 
 #takes approximately 30 seconds which is too long imho
 
-for i in range(1):
+for i in range(100):
     print(i)
     createInsertCommandForStudents()
