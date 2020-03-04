@@ -13,22 +13,22 @@ class dbh:
         con = c.connect(host=host, database=database, user=user)
         return con
 
-    def insertIntoDB(self, connection, tableName, columnNames, columnValues, execute=True):
-        # for multiple inserts use execute = False, compile the full query and then run.
-        #c = connection.cursor()
+        return sql
+
+    def insertIntoDB(self, connection, tableName, columnNames, listOfListOfValues):
         names = "("
         for n in columnNames:
             names += n + ','
         names = names[:-1] + ') '
-        vals = "VALUES("
-        for v in columnValues:
-            vals += str(v) + ','
-        vals = vals[:-1] + ')'
-        sql = "INSERT INTO " + tableName + names + vals + ";"
-        if execute:
-            self.executeSQL(connection, sql, self.debug)
-        else:
-            return sql
+        sql = "INSERT INTO " + tableName + names
+
+        for list in listOfListOfValues:
+            for v in list:
+                vals += str(v) + ','
+            vals = vals[:-1] + '),'
+        sql = sql[:-1] + ';'
+        print(sql)
+        self.executeSQL(connection, sql, self.debug)
 
     def executeSQL(self, sql):
         if self.debug:

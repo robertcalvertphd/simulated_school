@@ -63,6 +63,10 @@ class Student:
     def take_class(self,teacher, subject):
         pass
 
+    def getStudentValuesForInsert(s):
+        values = [1, s.ethnicity, s.raceSimple, s.raceComplex, s.sex, s.motivation, s.math, s.eng, s.ath, s.SES,
+                  s.family]
+        return values
 #    all of the above to be implemented later
 
 
@@ -71,20 +75,18 @@ def getGaussWithMin1(mean, sd):
     if ret < 1 : ret = 1
     return int(ret)
 
-def createSQLForInsert(con, s:Student):
-    names = ["USER_ID", "ETHNICITY", "RACE_SIMPLE", "RACE_COMPLEX", "SEX", "MOTIVATION", "MATH_APT", "ENG_APT",
-             "ATH_APT", "SES", "FAMILY"]
-    values = [1, s.ethnicity, s.raceSimple, s.raceComplex, s.sex, s.motivation, s.math, s.eng, s.ath, s.SES, s.family]
-    return dbh.insertIntoDB(con, "STUDENT", names, values, False)
-
-
-def createStudents(n = 100):
-    sql = ""
+def createInsertCommandForStudents(n = 100):
+    values = []
     for i in range(n):
         s = Student()
-        sql += createSQLForInsert(con, s)
-        print(sql)
-    dbh.executeSQL(sql)
+        values.append(s.getStudentValuesForInsert())
+
+    names = ["USER_ID", "ETHNICITY", "RACE_SIMPLE", "RACE_COMPLEX", "SEX", "MOTIVATION", "MATH_APT", "ENG_APT",
+             "ATH_APT", "SES", "FAMILY"]
+
+    return dbh.insertIntoDB(con, "STUDENT", names, values)
+
+
 #takes approximately 30 seconds which is too long imho
 
 for i in range(100):
