@@ -4,7 +4,7 @@ import mysql.connector as c
 class dbh:
     def __init__(self):
         self.con = self.create_connection()
-        self.debug = False
+        self.debug = True
 
     def create_connection(self):
         host = 'localhost'
