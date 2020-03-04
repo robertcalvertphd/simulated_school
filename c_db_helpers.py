@@ -29,7 +29,7 @@ class dbh:
             vals[:-1] + '),'
         sql = sql[:-1] + ';'
         print(sql)
-        self.executeSQL(connection, sql, self.debug)
+        self.executeSQL(sql)
 
     def executeSQL(self, sql):
         if self.debug:
