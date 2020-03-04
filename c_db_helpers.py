@@ -16,6 +16,9 @@ class dbh:
         return sql
 
     def insertIntoDB(self, tableName, columnNames, listOfListOfValues):
+        #note this function is intended for bulk entry of data. It may be worth while to create another function that
+        #deals solely with single inserts or make it an argument for this function.
+
         names = "("
         for n in columnNames:
             names += n + ','
