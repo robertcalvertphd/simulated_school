@@ -24,7 +24,7 @@ class dbh:
                 for v in  columnValues:
                         vals += str(v) + ','
                 vals = vals[:-1] + ')'
-                sql = "INSERT INTO " + tableName + names + vals
+                sql = "INSERT INTO " + tableName + names + vals + ";"
                 if execute:
                         executeSQL(connection, sql, self.debug)
                 else:
