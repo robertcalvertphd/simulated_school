@@ -78,7 +78,7 @@ def createSQLForInsert(con, s:Student):
     return dbh.insertIntoDB(con, "STUDENT", names, values, False)
 
 
-def createStudents(n = 10000):
+def createStudents(n = 100):
     sql = ""
     for i in range(n):
         s = Student()
