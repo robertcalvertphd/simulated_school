@@ -15,7 +15,7 @@ class dbh:
 
     def insertIntoDB(self, connection, tableName, columnNames, columnValues, execute=True):
         # for multiple inserts use execute = False, compile the full query and then run.
-        c = connection.cursor()
+        #c = connection.cursor()
         names = "("
         for n in columnNames:
             names += n + ','
