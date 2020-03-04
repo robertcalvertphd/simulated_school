@@ -35,6 +35,6 @@ class dbh:
                 if debug:
                         print(sql)
                 else:
-                        con.cursor().execute(sql)
-                        con.commit()
-
+                        x = con.cursor().execute(sql)
+                        y = con.commit()
+                        print(x,y)
