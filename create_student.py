@@ -78,11 +78,14 @@ def createSQLForInsert(con, s:Student):
     return dbh.insertIntoDB(con, "STUDENT", names, values, False)
 
 
-def createStudents(n = 1000):
+def createStudents(n = 10000):
     sql = ""
     for i in range(n):
         s = Student()
         sql += createSQLForInsert(con, s)
     dbh.executeSQL(con,sql)
 #takes approximately 30 seconds which is too long imho
-createStudents()
+
+for i in range(100):
+    print(i)
+    createStudents()
