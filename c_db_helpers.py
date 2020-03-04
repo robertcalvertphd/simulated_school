@@ -28,8 +28,8 @@ class dbh:
             vals += "("
             for v in list:
                 vals += str(v) + ','
-            vals = vals[:-1] + ')'
-        sql = sql[:-1] + vals + ';'
+            vals = vals[:-1] + '),'
+        sql = sql[:-1] + vals[:-1] + ';'
         self.executeSQL(sql)
 
     def executeSQL(self, sql):
