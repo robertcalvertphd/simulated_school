@@ -23,9 +23,10 @@ class dbh:
         sql = "INSERT INTO " + tableName + names
 
         for list in listOfListOfValues:
+            vals = "("
             for v in list:
                 vals += str(v) + ','
-            vals = vals[:-1] + '),'
+            vals[:-1] + '),'
         sql = sql[:-1] + ';'
         print(sql)
         self.executeSQL(connection, sql, self.debug)
