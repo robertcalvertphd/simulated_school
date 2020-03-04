@@ -66,6 +66,7 @@ class Student:
     def getStudentValuesForInsert(s):
         values = [1, s.ethnicity, s.raceSimple, s.raceComplex, s.sex, s.motivation, s.math, s.eng, s.ath, s.SES,
                   s.family]
+        print(values)
         return values
 #    all of the above to be implemented later
 
@@ -84,7 +85,7 @@ def createInsertCommandForStudents(n = 100):
     names = ["USER_ID", "ETHNICITY", "RACE_SIMPLE", "RACE_COMPLEX", "SEX", "MOTIVATION", "MATH_APT", "ENG_APT",
              "ATH_APT", "SES", "FAMILY"]
 
-    return dbh.insertIntoDB(con, "STUDENT", names, values)
+    return dbh.insertIntoDB("STUDENT", names, values)
 
 
 #takes approximately 30 seconds which is too long imho

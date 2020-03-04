@@ -15,7 +15,7 @@ class dbh:
 
         return sql
 
-    def insertIntoDB(self, connection, tableName, columnNames, listOfListOfValues):
+    def insertIntoDB(self, tableName, columnNames, listOfListOfValues):
         names = "("
         for n in columnNames:
             names += n + ','
