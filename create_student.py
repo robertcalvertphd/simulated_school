@@ -89,6 +89,6 @@ def createInsertCommandForStudents(n = 100):
 
 #takes approximately 30 seconds which is too long imho
 
-for i in range(100):
+for i in range(1):
     print(i)
-    createStudents()
+    createInsertCommandForStudents()
