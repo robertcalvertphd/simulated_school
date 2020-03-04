@@ -30,9 +30,9 @@ class dbh:
         else:
             return sql
 
-    def executeSQL(con, sql, debug):
-        if debug:
+    def executeSQL(self, sql):
+        if self.debug:
             print(sql)
         else:
-            con.cursor().execute(sql)
-            con.commit()
+            self.con.cursor().execute(sql)
+            self.con.commit()
